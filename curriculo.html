@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo Benfica - Portfólio & Currículo</title>
+    <style>
+        /* --- CORE ANIMATIONS --- */
+        @keyframes subtleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes neonFlow {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes sectionEnter {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: default;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: #0f172a;
+            display: grid;
+            grid-template-rows: auto auto 1fr;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: sectionEnter 0.8s ease-out;
+        }
+
+        header {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #020617);
+            background-size: 400% 400%;
+            animation: subtleGradient 15s ease infinite;
+            padding: 50px 50px 35px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            background: linear-gradient(to right, #fff, #00aaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        header h2 {
+            font-size: 18px;
+            color: #00aaff;
+            font-weight: 500;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .neon-divider {
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, #00aaff, #fff, #00aaff, transparent);
+            background-size: 200% 100%;
+            animation: neonFlow 4s linear infinite;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+        }
+
+        .sidebar {
+            background-color: rgba(30, 41, 59, 0.3);
+            padding: 40px 30px;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #00aaff;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-section h3::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #00aaff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00aaff;
+        }
+
+        .skill-item {
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #cbd5e1;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .skill-item strong { display: block; margin-bottom: 2px; }
+        .skill-item span.date-label { display: block; font-size: 11px; color: #00aaff; margin-top: 2px; }
+
+        .skill-item:hover {
+            background: rgba(0, 170, 255, 0.1);
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        .content {
+            padding: 40px 50px;
+            background: #0f172a;
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+            animation: sectionEnter 1s ease-out;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(to right, rgba(0, 170, 255, 0.5), transparent);
+        }
+
+        .job-card {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid rgba(0, 170, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .job-title { font-size: 17px; font-weight: 600; color: #f8fafc; }
+        .job-date { font-size: 12px; color: #00aaff; font-family: monospace; }
+        .company-name { display: block; font-size: 14px; color: #38bdf8; margin-bottom: 10px; }
+
+        .job-list { list-style: none; }
+        .job-list li {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .job-list li::before { content: "→"; position: absolute; left: 0; color: #00aaff; }
+
+        /* CERTIFICADOS ESTILO LISTA OTIMIZADA */
+        .cert-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .cert-row {
+            background: rgba(30, 41, 59, 0.4);
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .cert-row:hover {
+            border-color: rgba(0, 170, 255, 0.3);
+            background: rgba(30, 41, 59, 0.6);
+        }
+
+        .cert-name { color: #f8fafc; font-weight: 500; }
+        .cert-org { color: #64748b; font-size: 12px; }
+        .cert-year { color: #00aaff; font-weight: bold; min-width: 45px; text-align: right; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .page { width: 100%; box-shadow: none; background: white; color: black; border: none; }
+            header, .sidebar, .cert-row { background: white !important; border: 1px solid #eee !important; color: black !important; }
+            .neon-divider, .sidebar-section h3::before { display: none; }
+            h1, h2, h3, .job-title, .company-name, .cert-name { color: black !important; -webkit-text-fill-color: black !important; }
+            .job-list li, .skill-item, .cert-org { color: #333 !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <header>
+            <div class="header-info">
+                <h1>Gustavo Aprigio</h1>
+                <h2>ADMINISTRAÇÃO & TECNOLOGIA</h2>
+                <div class="contact-grid">
+                    <div class="contact-item"><span>📍 Belo Horizonte, MG</span></div>
+                    <div class="contact-item"><span>📞 (31) 98486-1723</span></div>
+                    <div class="contact-item"><span>✉️ gustavo.aprigio@icloud.com</span></div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="neon-divider"></div>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Formação</h3>
+                    <div class="skill-item">
+                        <strong>Developer Full Stack & IA</strong>
+                        <span>Infinity School</span>
+                        <span class="date-label">Formação Prevista: 2026</span>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Ensino Médio</strong>
+                        <span>Concluído</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Tech Stack</h3>
+                    <div class="skill-item">Lógica de Programação</div>
+                    <div class="skill-item">Workspace Digital</div>
+                    <div class="skill-item">Impressão 3D & CAD</div>
+                    <div class="skill-item">Robótica & Programação</div>
+                    <div class="skill-item">Excel & Word Avançado</div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Habilidades</h3>
+                    <div class="skill-item">Raciocínio Lógico</div>
+                    <div class="skill-item">Matemática Financeira</div>
+                    <div class="skill-item">Atendimento ao Cliente</div>
+                    <div class="skill-item">Gestão de Dados</div>
+                </div>
+            </aside>
+
+            <main class="content">
+                <section class="content-section">
+                    <div class="section-title">Resumo</div>
+                    <p style="font-size: 14px; color: #94a3b8; line-height: 1.6;">
+                        Profissional orientado a resultados com sólida base em rotinas administrativas e logística. Em transição para o mercado tecnológico através da especialização em Full Stack, focando em automação e soluções inteligentes.
+                    </p>
+                </section>
+
+                <section class="content-section">
+                    <div class="section-title">Experiência Profissional</div>
+                    <div class="job-card">
+                        <div class="job-header">
+                            <span class="job-title">Adolescente Trabalhador</span>
+                            <span class="job-date">2023 — 2025</span>
+                        </div>
+                        <span class="company-name">Regional Oeste – Cadastro Único / Assprom</span>
+                        <ul class="job-list">
+                            <li>Gestão de planilhas e bancos de dados administrativos.</li>
+                            <li>Suporte operacional e atendimento ao público.</li>
+                            <li>Controle logístico e digitalização de documentos.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <div class="section-title">Certificações & Cursos</div>
+                    <div class="cert-list">
+                        <div class="cert-row"><span class="cert-name">Raciocínio Lógico e Matemático</span> <span class="cert-org">Assprom</span> <span class="cert-year">2025</span></div>
+                        <div class="cert-row"><span class="cert-name">Matemática Financeira Estatística</span> <span class="cert-org">Assprom</span> <span class="cert-year">2025</span></div>
+                        <div class="cert-row"><span class="cert-name">Iniciação ao Workspace Digital</span> <span class="cert-org">Assprom</span> <span class="cert-year">2025</span></div>
+                        <div class="cert-row"><span class="cert-name">Desenvolvimento Profissional</span> <span class="cert-org">Assprom</span> <span class="cert-year">2025</span></div>
+                        <div class="cert-row"><span class="cert-name">Impressão 3d e Artes Visuais</span> <span class="cert-org">Assprom</span> <span class="cert-year">2024</span></div>
+                        <div class="cert-row"><span class="cert-name">Língua Portuguesa Reflexão e Pratica</span> <span class="cert-org">Assprom</span> <span class="cert-year">2024</span></div>
+                        <div class="cert-row"><span class="cert-name">Técnicas de Leitura e Compreensão</span> <span class="cert-org">Assprom</span> <span class="cert-year">2024</span></div>
+                        <div class="cert-row"><span class="cert-name">Excelência no Atendimento ao Cliente</span> <span class="cert-org">Assprom</span> <span class="cert-year">2023</span></div>
+                        <div class="cert-row"><span class="cert-name">Microsoft Word</span> <span class="cert-org">Assprom</span> <span class="cert-year">2023</span></div>
+                        <div class="cert-row"><span class="cert-name">Curso de Informática</span> <span class="cert-org">Cenad</span> <span class="cert-year">2022</span></div>
+                        <div class="cert-row"><span class="cert-name">Curso de Programação</span> <span class="cert-org">Cefet</span> <span class="cert-year">2018</span></div>
+                        <div class="cert-row"><span class="cert-name">Curso de Robótica</span> <span class="cert-org">Cefet</span> <span class="cert-year">2018</span></div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
